@@ -2,22 +2,20 @@
 
 A MongoDB driver node for Node-Red without limitations.
 
-[![npm version](https://img.shields.io/npm/v/node-red-contrib-mongodb4.svg?style=flat-square)](https://www.npmjs.org/package/node-red-contrib-mongodb4)
-[![install size](https://img.shields.io/badge/dynamic/json?url=https://packagephobia.com/v2/api.json?p=node-red-contrib-mongodb4&query=$.install.pretty&label=install%20size&style=flat-square)](https://packagephobia.now.sh/result?p=node-red-contrib-mongodb4)
-[![npm downloads](https://img.shields.io/npm/dm/node-red-contrib-mongodb4.svg?style=flat-square)](https://npm-stat.com/charts.html?package=node-red-contrib-mongodb4)
+This is a fork from the excellent steineey/node-red-contrib-mongodb4 with a small patch to make it fully configurable using environment variables.
 
 This package includes two nodes for node-red:
 
 **The Config Node**
 
 Connect to your local MongoDB Server or a MongoDB Atlas cluster.
-![client-node](https://raw.githubusercontent.com/steineey/node-red-contrib-mongodb4/master/examples/config-node.png)
+![client-node](https://raw.githubusercontent.com/breshinas/node-red-contrib-mongodb4/master/examples/config-node.png)
 
 **The Flow Node**
 
 Execute a database or collection operation within your flow. This node was developed to use all the features of the native MongoDB driver without any limitations.
-![basic-flow](https://raw.githubusercontent.com/steineey/node-red-contrib-mongodb4/master/examples/basic-flow.png)
-![flow-node](https://raw.githubusercontent.com/steineey/node-red-contrib-mongodb4/master/examples/operation-node.png)
+![basic-flow](https://raw.githubusercontent.com/breshinas/node-red-contrib-mongodb4/master/examples/basic-flow.png)
+![flow-node](https://raw.githubusercontent.com/breshinas/node-red-contrib-mongodb4/master/examples/operation-node.png)
 
 _This node was inspired by other projects like [node-red-contrib-mongodb3](https://github.com/ozomer/node-red-contrib-mongodb2) or [node-red-node-mongodb](https://flows.nodered.org/node/node-red-node-mongodb)._
 
@@ -45,9 +43,9 @@ These breaking changes could affect you if you upgrade from node-red-contrib-mon
 ## Usage Example
 
 Import the example flow to get a quick introduction how to use this node. \
-[flow.json](https://raw.githubusercontent.com/steineey/node-red-contrib-mongodb4/master/examples/example-1.json) \
+[flow.json](https://raw.githubusercontent.com/breshinas/node-red-contrib-mongodb4/master/examples/example-1.json) \
 \
-![flow-image](https://raw.githubusercontent.com/steineey/node-red-contrib-mongodb4/master/examples/example-1-flow.png)
+![flow-image](https://raw.githubusercontent.com/breshinas/node-red-contrib-mongodb4/master/examples/example-1-flow.png)
 
 ## The Configuration Node
 
@@ -62,6 +60,8 @@ This node will create a MongoDB client, with a connection pool for operation nod
 
 -   **Port** - Optional port number. In most cases `27017`.
 
+Note: you can set all values in config node to environment variable using form `${MONGO_URI}`. Nodered will convert that to your actual setting on startup.
+
 ### Advanced Connection URI
 
 -   **URI** - Define your own connection string in URI format.
@@ -69,9 +69,9 @@ This node will create a MongoDB client, with a connection pool for operation nod
 
 ### Authentication (optional)
 
--   **Username** - Username for authentication.
+-   **Username** - Username for authentication. Also you can define username as environment `MONGO_USER_LOGIN` (it override username value)
 
--   **Password** - Password for authentication.
+-   **Password** - Password for authentication. Also you can define password as environment `MONGO_USER_PASSWORD` (it override password value)
 
 -   **AuthMech** - Specify the authentication mechanism that MongoDB will use to authenticate the connection. This will only be used in combination with username and password.
 
@@ -146,7 +146,7 @@ Execute MongoDB collection operations with this node.
 
 Common collection operations are `find`, `findOne`, `insertOne`, `insertMany`, `updateOne`, `updateMany`, `deleteOne`, `deleteMany`, `aggregate` and more.
 
-`insert`, `update` and `delete` are deprecated and not supported by the latest mongodb driver version. Read the [upgrade instructions](https://github.com/steineey/node-red-contrib-mongodb4#upgrade-to-package-version-v2x) for more information.
+`insert`, `update` and `delete` are deprecated and not supported by the latest mongodb driver version. Read the [upgrade instructions](https://github.com/breshinas/node-red-contrib-mongodb4#upgrade-to-package-version-v2x) for more information.
 
 Common database operations are `command`, `ping`, `stats` and more.
 

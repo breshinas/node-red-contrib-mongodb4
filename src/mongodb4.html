@@ -319,6 +319,8 @@ Node will create a MongoDB Client.
 
 -   **Port** - Optional port number. In most cases `27017`.
 
+Note: you can set all values in config node to environment variable using form `${MONGO_URI}`. Nodered will convert that to your actual setting on startup.
+
 ### Advanced Connection URI
 
 -   **URI** - Define your own connection string in URI format.
@@ -326,9 +328,9 @@ Node will create a MongoDB Client.
 
 ### Authentication (optional)
 
--   **Username** - Username for authentication.
+-   **Username** - Username for authentication. Also you can define username as environment `MONGO_USER_LOGIN` (it override username value)
 
--   **Password** - Password for authentication.
+-   **Password** - Password for authentication. Also you can define password as environment `MONGO_USER_PASSWORD` (it override password value)
 
 -   **AuthMech** - Specify the authentication mechanism that MongoDB will use to authenticate the connection. This will only be used in combination with username and password.
 

@@ -39,8 +39,8 @@ module.exports = function (RED) {
         let auth = null;
         if (node.credentials.username || node.credentials.password) {
             auth = {
-                username: node.credentials.username || "",
-                password: node.credentials.password || "",
+                username: process.env["MONGO_USER_LOGIN"] || node.credentials.username || "",
+                password: process.env["MONGO_USER_PASSWORD"] || node.credentials.password || "",
             };
         }
 

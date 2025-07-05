@@ -7,12 +7,12 @@
         "nodes",
         "mongodb"
     ],
-    "author": "Christopher Steinbach",
-    "homepage": "https://github.com/steineey/node-red-contrib-mongodb4#readme",
-    "bugs": "https://github.com/steineey/node-red-contrib-mongodb4/issues",
+    "author": "Aleksei Breshin",
+    "homepage": "https://github.com/breshinas/node-red-contrib-mongodb4#readme",
+    "bugs": "https://github.com/breshinas/node-red-contrib-mongodb4/issues",
     "repository": {
         "type": "git",
-        "url": "https://github.com/steineey/node-red-contrib-mongodb4"
+        "url": "https://github.com/breshinas/node-red-contrib-mongodb4"
     },
     "license": "MIT",
     "scripts": {
